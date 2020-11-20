@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical">
+  <ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_custom_warning"
+    android:id="@+id/Image"
+    android:layout_marginLeft="50sp"
+  >  </ImageView>
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/Image"
+    android:text="Watch Out !"
+    android:textStyle="bold"
+    android:textColor="@color/Red"
+    android:textSize="40sp"
+  >  </TextView>
+</RelativeLayout>
