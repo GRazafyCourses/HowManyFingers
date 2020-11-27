@@ -37,7 +37,6 @@ class HowManyFingersActivity : AppCompatActivity() {
     var secondDice = findViewById<ImageView>(R.id.secondDice)
 
     val value = Integer.parseInt(edtText.text.toString())
-
     var text2print = ""
     var myColor = Color.RED
 
