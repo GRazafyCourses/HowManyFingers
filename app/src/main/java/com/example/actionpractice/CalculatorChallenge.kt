@@ -2,7 +2,6 @@ package com.example.actionpractice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_calculator_challenge.*
 
@@ -43,21 +42,52 @@ class CalculatorChallenge : AppCompatActivity() {
           "-" -> Result = matcher.groupValues[1].toDouble() - matcher.groupValues[3].toDouble();
           "*" -> Result = matcher.groupValues[1].toDouble() * matcher.groupValues[3].toDouble();
           "/" -> Result = matcher.groupValues[1].toDouble() / matcher.groupValues[3].toDouble();
-          "^" -> Result = Math.pow(matcher.groupValues[1].toDouble(),matcher.groupValues[3].toDouble());
+          "^" -> Result = powRecursive(matcher.groupValues[1].toDouble(),matcher.groupValues[3].toDouble())
+          "!" -> Result = factRecursive(matcher.groupValues[1].toDouble())
         }
       }
     }
     operationString = Result.toString();
     ResultTextView.setText(Result.toString());
   }
+
+  private fun factIterative(myVal: Double): Double {
+    var res = 1.0
+    for (i in 1..myVal.toInt()){
+      res *= i
+    }
+    return res;
+  }
+  private fun factRecursive(myVal: Double): Double {
+    if ( myVal != 0.0){
+      return myVal*factRecursive(myVal-1)
+    }else{
+      return 1.0
+    }
+  }
+
+  private fun powIterative(s: Double, s1: Double): Double {
+      var res = 1.0
+      for (i in 1..s1.toInt()){
+        res *= s
+      }
+    return res
+  }
+
+  private fun powRecursive(s: Double, s1: Double): Double {
+    if (s1 > 0.0){
+      return s * powRecursive(s,s1-1);
+    }else {
+      return 1.0;
+    }
+  }
+
   fun binary2decimal(view: View) {
     var Result = 0.0
     var counter = 0
     for (e in operationString){
       if(e == '0' || e == '1'){
-        Log.i("myApp","e : $e")
-        Result = Result + e.toDouble();
-        Log.i("myApp","Result : $Result")
+        Result = Result + Integer.parseInt(e.toString()).toDouble()*Math.pow(2.0,operationString.length-counter.toDouble()-1);
       }
       counter = counter + 1
     }
