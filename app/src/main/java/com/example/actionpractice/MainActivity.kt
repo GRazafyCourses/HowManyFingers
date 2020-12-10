@@ -58,4 +58,9 @@ class MainActivity : AppCompatActivity() {
     var intent = Intent(this,BMIChallenge::class.java)
     startActivity(intent)
   }
+
+  fun CalculatorChallengeActivity(view: View) {
+    var intent = Intent(this,CalculatorChallenge::class.java)
+    startActivity(intent)
+  }
 }

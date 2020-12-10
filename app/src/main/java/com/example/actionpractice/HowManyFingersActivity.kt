@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_how_many_fingers.*
 import java.util.concurrent.atomic.AtomicInteger
 
 class HowManyFingersActivity : AppCompatActivity() {
@@ -30,18 +31,16 @@ class HowManyFingersActivity : AppCompatActivity() {
   }
   fun showNumber(view: View) {
     var randomNumber = (2..12).random()
-    var edtText = findViewById<EditText>(R.id.write_to_edit_text)
-    var txtViResult = findViewById<TextView>(R.id.ResultEdt)
-
-    var firstDice = findViewById<ImageView>(R.id.firstDice)
-    var secondDice = findViewById<ImageView>(R.id.secondDice)
-
-    val value = Integer.parseInt(edtText.text.toString())
+    val value = Integer.parseInt(write_to_edit_text.text.toString())
     var text2print = ""
     var myColor = Color.RED
 
+
+
     var firstDiceValue = (1..randomNumber-1).random()
     var secondDiceValue = 1
+
+    //Setting the value of each dice so i can have different one ( 6 : 3+3 or 2+4 or 4+2 or 5+1 etc...)
     if (firstDiceValue > 6){
       secondDiceValue = randomNumber - 6
       firstDiceValue = 6
@@ -54,12 +53,11 @@ class HowManyFingersActivity : AppCompatActivity() {
       secondDiceValue = randomNumber - firstDiceValue
     }
 
+    // Getting the Drawables
     var idFirstDice = getMyDrawable(firstDiceValue)
     var idSecondDice = getMyDrawable(secondDiceValue)
-    Log.i("myApp","First Dice Value: $firstDiceValue")
-    Log.i("myApp","Second Dice Value: $secondDiceValue")
-    Log.i("myApp","First Dice Id: $idFirstDice")
-    Log.i("myApp","Second Dice Id: $idSecondDice")
+
+    // Setting the Drawables
     firstDice.setImageResource(idFirstDice)
     secondDice.setImageResource(idSecondDice)
 
@@ -71,7 +69,9 @@ class HowManyFingersActivity : AppCompatActivity() {
     }else{
       text2print = "No!, You Lost!, I'm showing: $randomNumber"
     }
-    txtViResult.setTextColor(myColor)
-    txtViResult.setText(text2print)
+
+
+    ResultEdt.setTextColor(myColor)
+    ResultEdt.setText(text2print)
   }
 }

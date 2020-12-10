@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_b_m_i_challenge.*
 import android.widget.TextView
 
 class BMIChallenge : AppCompatActivity() {
@@ -15,17 +16,11 @@ class BMIChallenge : AppCompatActivity() {
   }
 
   fun showBMI(view: View) {
-    var edtTextMass = findViewById<EditText>(R.id.edit_text_mass)
-    var edtTextHeight = findViewById<EditText>(R.id.edit_text_height)
-
-    var imageBMI = findViewById<ImageView>(R.id.imageBMI)
-
-    val valueMass = ((edtTextMass.text.toString())).toDouble()
-    val valueHeight = ((edtTextHeight.text.toString())).toDouble()
+    val valueMass = ((edit_text_mass.text.toString())).toDouble()
+    val valueHeight = ((edit_text_height.text.toString())).toDouble()
 
     val bmiIndice = valueMass/(valueHeight*valueHeight)
 
-    Log.i("myApp","BMIindice Value: $bmiIndice")
     val drawableID = when {
       bmiIndice < 18.5 -> R.drawable.underweight
       18.5 < bmiIndice &&  bmiIndice < 24.9 -> R.drawable.healthy
