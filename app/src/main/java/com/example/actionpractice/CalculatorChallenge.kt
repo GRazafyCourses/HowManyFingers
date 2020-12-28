@@ -18,7 +18,6 @@ class CalculatorChallenge : AppCompatActivity() {
     ResultTextView.setText(operationString);
   }
 
-
   fun minus(view: View) {
     operationString = operationString + "-";
     ResultTextView.setText(operationString);
@@ -82,17 +81,17 @@ class CalculatorChallenge : AppCompatActivity() {
     }
   }
 
-  fun binary2decimal(view: View) {
-    var Result = 0.0
-    var counter = 0
-    for (e in operationString){
-      if(e == '0' || e == '1'){
-        Result = Result + Integer.parseInt(e.toString()).toDouble()*Math.pow(2.0,operationString.length-counter.toDouble()-1);
+    fun binary2decimal(view: View) {
+      var Result = 0.0
+      var counter = 0
+      for (e in operationString){
+        if(e == '0' || e == '1'){
+          Result = Result + Integer.parseInt(e.toString()).toDouble()*Math.pow(2.0,operationString.length-counter.toDouble()-1);
+        }
+        counter = counter + 1
       }
-      counter = counter + 1
+      ResultTextView.setText(Result.toString());
     }
-    ResultTextView.setText(Result.toString());
-  }
   fun power(view: View) {
     operationString = operationString + "^";
     ResultTextView.setText(operationString);

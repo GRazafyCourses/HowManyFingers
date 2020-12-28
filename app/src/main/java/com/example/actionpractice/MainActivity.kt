@@ -63,4 +63,11 @@ class MainActivity : AppCompatActivity() {
     var intent = Intent(this,CalculatorChallenge::class.java)
     startActivity(intent)
   }
+
+  fun ListActivity(view: View) {
+    var intent = Intent(this,ListActivity::class.java)
+    startActivity(intent)
+  }
+
+
 }
