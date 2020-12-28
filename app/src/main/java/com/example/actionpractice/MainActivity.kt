@@ -12,14 +12,18 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_get_value.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+      user_value_to_be_passed.setText(intent.getStringExtra("valueToBePassedGetValue"))
     }
 
-  fun writeToLogCat(view: View) {
+  /*fun writeToLogCat(view: View) {
     Log.i("myApp","First message from my app")
   }
 
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity() {
   fun WriteToEditText(view: View) {
     var myEditText = findViewById<EditText>(R.id.write_to_edit_text)
     myEditText.setText("Whatever we want")
-  }
+  }*/
 
   fun HowManyFingersActivity(view: View) {
     var intent = Intent(this,HowManyFingersActivity::class.java)
@@ -66,6 +70,12 @@ class MainActivity : AppCompatActivity() {
 
   fun ListActivity(view: View) {
     var intent = Intent(this,ListActivity::class.java)
+    startActivity(intent)
+  }
+
+  fun runActivityAndPassValue(view: View) {
+    val intent = Intent(this, GetValueActivity::class.java)
+    intent.putExtra("valueToBePassed", user_value_to_be_passed.text.toString())
     startActivity(intent)
   }
 

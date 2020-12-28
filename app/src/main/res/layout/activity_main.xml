@@ -7,44 +7,6 @@
   <Button android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="20sp"
-          android:text="write to logcat"
-          android:textStyle="bold"
-          android:textSize="25sp"
-          android:onClick="writeToLogCat"/>
-
-  <Button android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Show the Toats"
-          android:textStyle="bold"
-          android:textSize="25sp"
-          android:onClick="showTheToast"/>
-
-  <Button android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Show the XML Toats"
-          android:textStyle="bold"
-          android:textSize="25sp"
-          android:onClick="showXMLToast"/>
-  <EditText
-    android:id="@+id/write_to_edit_text"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Something"
-    android:textSize="32sp"
-    android:textAlignment="center"
-    android:gravity="center_horizontal">
-  </EditText>
-
-  <Button android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20sp"
-          android:text="Write to EditText"
-          android:textStyle="bold"
-          android:textSize="25sp"
-          android:onClick="WriteToEditText"></Button>
-  <Button android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20sp"
           android:text="HowManyFingers"
           android:textStyle="bold"
           android:textSize="25sp"
@@ -70,5 +32,22 @@
           android:textStyle="bold"
           android:textSize="25sp"
           android:onClick="ListActivity"/>
+  <EditText
+    android:id="@+id/user_value_to_be_passed"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Value"
+    android:textSize="32sp"
+    android:textAlignment="center"
+    android:gravity="center_horizontal">
+  </EditText>
+
+  <Button android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20sp"
+          android:text="Pass value to the next activity"
+          android:textStyle="bold"
+          android:textSize="25sp"
+          android:onClick="runActivityAndPassValue"></Button>
 
 </LinearLayout>
