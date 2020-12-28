@@ -2,6 +2,7 @@ package com.example.actionpractice
 
 import FlowerNameAdapter
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.BaseAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +21,24 @@ class ListActivity : AppCompatActivity() {
     val adapter = FlowerNameAdapter(this, listOfFlowers, listOfFlowersImageIDs)
     flower_list.adapter = adapter
     flower_list.setOnItemClickListener { parent, view, position, id ->
-      showFlowerNameInputBox(listOfFlowers[position], position, adapter)
+      ChangeFlowerAct(listOfFlowers[position], position, adapter)
     }
   }
+  private fun ChangeFlowerAct(oldName: String, position: Int, adapter: FlowerNameAdapter) {
+    val intent = Intent(this, ChangeFlower::class.java)
+    intent.putExtra("valueToBePassed", listOfFlowers[position])
+    startActivityForResult(intent, position)
+  }
+
+
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (resultCode == RESULT_OK) {
+      listOfFlowers[requestCode] = data?.getStringExtra("editTextValue").toString()
+      (flower_list.adapter as BaseAdapter).notifyDataSetChanged()
+    }
+  }
+
 
   private fun showFlowerNameInputBox(oldName: String, position: Int, adapter: FlowerNameAdapter) {
     val dialog = Dialog(this)
