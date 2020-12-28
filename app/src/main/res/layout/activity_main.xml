@@ -48,6 +48,29 @@
           android:text="Pass value to the next activity"
           android:textStyle="bold"
           android:textSize="25sp"
-          android:onClick="runActivityAndPassValue"></Button>
+          android:onClick="runActivityAndPassValue"/>
+  <EditText
+    android:id="@+id/sp_value"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="sp_value"
+    android:textSize="32sp"
+    android:textAlignment="center"
+    android:gravity="center_horizontal">
+  </EditText>
 
+  <Button android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20sp"
+          android:text="Write to"
+          android:textStyle="bold"
+          android:textSize="25sp"
+          android:onClick="spWriteTo"/>
+  <Button android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20sp"
+          android:text="Read From"
+          android:textStyle="bold"
+          android:textSize="25sp"
+          android:onClick="spReadFrom"/>
 </LinearLayout>

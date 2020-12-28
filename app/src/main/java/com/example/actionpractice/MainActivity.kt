@@ -1,5 +1,6 @@
 package com.example.actionpractice
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -77,6 +78,19 @@ class MainActivity : AppCompatActivity() {
     val intent = Intent(this, GetValueActivity::class.java)
     intent.putExtra("valueToBePassed", user_value_to_be_passed.text.toString())
     startActivity(intent)
+  }
+
+
+
+  fun spWriteTo(view: View) {
+    val pref = getPreferences(Context.MODE_PRIVATE)
+    val editor = pref.edit()
+    editor.putString("key_text", sp_value.text.toString())
+    editor.apply()
+  }
+  fun spReadFrom(view: View) {
+    val pref = getPreferences(Context.MODE_PRIVATE)
+    sp_value.setText(pref.getString("key_text", ""))
   }
 
 
